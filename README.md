@@ -81,5 +81,4 @@ python -m ipykernel install --user --name dog-project --display-name "dog-projec
 Switch to the dog-project directory and open the notebook.
 ```
 jupyter notebook dog_app.ipynb
-
-
+```
