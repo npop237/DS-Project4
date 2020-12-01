@@ -1,13 +1,22 @@
 # DS-Project4
 
-1. Project Summary
-The purpose of this project is to build a convolutional neural network that can identify a dog's breed from an image
+Udacity Data Science Nanodegree Project 4 - Dog Breed Classifier Project
 
-2. Libraries Required to run:
+
+### 1. Project Summary
+The purpose of this project is to build a convolutional neural network that can identify a dog's breed from an image. The notebook begins with the steps to create a human face detector and dog face detector. 
+
+This is followed by the development of a convolutional neural network from scratch to predict a dog's breed from an image. Next is a second CNN developed using transfer learning in order to get an accuracy of at least 60% for the classifier.
+
+The final step is to bring together the human and dog face detectors with the dog breed classifier to build an algorithm where the user can input an image and the closest dog breed is returned if the image contains a human or a dog.
+
+
+### 2. Libraries Required
 In order to run the project you will need to install the libraries and their corresponding minimum versions outlined in the file requirements/requirements.txt
 To run the project on a GPU the requirements are within requirements/requirements-gpu.txt
 
-3. Running Instructions:
+
+### 3. Running Instructions:
 Download the [dog dataset](https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/dogImages.zip).  Unzip the folder and place it in the repo, at location `path/to/dog-project/dogImages`. 
 
 Download the [human dataset](https://s3-us-west-1.amazonaws.com/udacity-aind/dog-project/lfw.zip).  Unzip the folder and place it in the repo, at location `path/to/dog-project/lfw`.  If you are using a Windows machine, you are encouraged to use [7zip](http://www.7-zip.org/) to extract the folder. 
@@ -82,3 +91,15 @@ Switch to the dog-project directory and open the notebook.
 ```
 jupyter notebook dog_app.ipynb
 ```
+
+### 4. Results and Analysis
+The first attempt at building a CNN yielded an accuracy of 3%. This was trained over 5 epochs in less than 2 minutes and has three convolutional layers, three max pooling layers and one global average pooling layer. The optimizer used was RMSprop, the loss function is categorical crossentropy and the only measured metric is accuracy.
+
+For the case of transfer learning using the ResNet-50 model, we achieve an accuracy of 80% after training the model for 10 epochs. The original weights for the ResNet-50 bottleneck features were maintained and the model was trained with an additional global average pooling layer before the fully connected output layer.
+
+The majority of dogs tested with the algorithm were identified correctly however there are limitations when using the the algorithm to identify the breeds of puppies and when submitting other animals such as cats as these can be mistaken for human faces.
+
+### 5. Acknowledgements
+Thank you to Udacity along with their suppliers and contributors for providing the baseline code for the notebook and the images used in the development of the dog breed classifier.
+
+Also thank you to my pals Lucia and Shaylen for providing selfies to test the classifier on human faces along with Frank the pug and Coco the cavalier for being wonderful models too. Finally to my cat Siri for also reluctantly modelling for this notebook.
